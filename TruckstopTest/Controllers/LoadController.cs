@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TruckstopTest.Context;
 using TruckstopTest.Models;
 
 namespace TruckstopTest.Controllers
@@ -17,7 +17,7 @@ namespace TruckstopTest.Controllers
 
         public LoadController(LoadsContext context)
         {
-            _context = context;
+            _context = context;            
         }
 
         // GET: LoadController
@@ -64,7 +64,7 @@ namespace TruckstopTest.Controllers
         }
 
         // POST: LoadController/Delete/5
-        //[HttpDelete("{Id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLoad(Guid id)
         {
             var load = await _context.Loads.FindAsync(id);
