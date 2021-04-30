@@ -17,10 +17,9 @@ namespace TruckstopTest.Controllers
 
         public LoadController(LoadsContext context)
         {
-            _context = context;            
+            _context = context;
         }
 
-        // GET: LoadController
         [HttpGet]
         public async Task<ActionResult<IEnumerable<LoadDTO>>> GetLoads()
         {
@@ -39,7 +38,6 @@ namespace TruckstopTest.Controllers
             Id = load.Id
         };
 
-        // GET: LoadController/Details/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Load>> GetLoadDetails(Guid id)
         {
@@ -53,17 +51,23 @@ namespace TruckstopTest.Controllers
             return load;
         }
 
-        // POST: LoadController/Create
         [HttpPost]
         public async Task<ActionResult<Load>> PostLoadItem(Load load)
         {
+            var existingLoad = await _context.Loads.FindAsync(load.Id);
+
+            if (existingLoad != null)
+            {
+                return NotFound();
+            }
+
             _context.Loads.Add(load);
+
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetLoadDetails), new { id = load.Id }, load);
         }
 
-        // POST: LoadController/Delete/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLoad(Guid id)
         {
@@ -80,31 +84,6 @@ namespace TruckstopTest.Controllers
             return NoContent();
         }
 
-    // GET: LoadController/Edit/5
-    /*public ActionResult Edit(int id)
-    {
-        return View();
+        // Add Update
     }
-
-    // POST: LoadController/Edit/5
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Edit(int id, IFormCollection collection)
-    {
-        try
-        {
-            return RedirectToAction(nameof(Index));
-        }
-        catch
-        {
-            return View();
-        }
-    }
-
-    // GET: LoadController/Delete/5
-    public ActionResult Delete(int id)
-    {
-        return View();
-    }*/
-}
 }
