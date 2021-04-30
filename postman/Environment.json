@@ -1,0 +1,19 @@
+{
+	"id": "44860c16-e488-4ab0-84be-2f6ed0415ad4",
+	"name": "Interview Prep",
+	"values": [
+		{
+			"key": "localhost",
+			"value": "http://localhost:5001",
+			"enabled": true
+		},
+		{
+			"key": "LoadId",
+			"value": "1",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-04-30T18:26:28.540Z",
+	"_postman_exported_using": "Postman/7.36.5"
+}
