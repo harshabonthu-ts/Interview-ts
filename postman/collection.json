@@ -11,7 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{localhost}}/load/{{LoadId}}",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"load",
+						"{{LoadId}}"
+					]
 				}
 			},
 			"response": []
@@ -22,7 +29,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{localhost}}/loads",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"loads"
+					]
 				}
 			},
 			"response": []
@@ -30,10 +43,25 @@
 		{
 			"name": "Create Load",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"36ed250d-ead2-448c-a6e3-6d7470922f8a\",\n    \"rate\": 599.11,\n    \"origin_city\": \"Seattle\",\n    \"origin_state\": \"WA\",\n    \"destination_city\": \"Boise\",\n    \"destination_state\": \"ID\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "{{localhost}}/loads",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"loads"
+					]
 				}
 			},
 			"response": []
