@@ -20,16 +20,10 @@ namespace TruckstopTest.Controllers
             _context = context;
         }
 
-        private static LoadDTO LoadToDTO(Load load) => new LoadDTO
-        {
-            Id = load.Id
-        };
-
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<LoadDTO>>> GetLoads()
+        public async Task<ActionResult<IEnumerable<Load>>> GetLoads()
         {
-            var loads = await _context.Loads.Select(x => LoadToDTO(x)).ToListAsync();
-
+            var loads = await _context.Loads.ToListAsync();
             if (loads == null)
             {
                 return NotFound();
