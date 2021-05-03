@@ -18,7 +18,7 @@ This repository has a basic setup for HTTP requests, including a GET by Id, GET 
 
 The loads.json file has the mock data that you'll be using to perform the GETs and POST.
 
-Testing of endpoints can be done through built the in Swagger UI.
+Testing of endpoints can be done through the built-in Swagger UI.
 
 Please ask any questions as they arise.
 
