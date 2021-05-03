@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System;
 using TruckstopTest.Models;
 
 namespace TruckstopTest.Context
@@ -19,7 +20,9 @@ namespace TruckstopTest.Context
         {
             var loads = new List<Load>();
 
-            using (StreamReader sr = new StreamReader("..\\loads.json"))
+            var path = Path.Combine(Environment.CurrentDirectory, "loads.json");
+
+            using (StreamReader sr = new StreamReader(path))
             {
                 string json = sr.ReadToEnd();
                 loads = JsonConvert.DeserializeObject<List<Load>>(json);
